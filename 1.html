@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Apple</title>
+    <style type="text/css">
+        body {
+            background-color: black;
+        }
+
+        #hOne{
+            color: white;
+            font-size: 50px;
+            font-family: PingFangSC-Regular, sans-serif;
+            line-height: 1px;
+            width: 100%;
+            text-align: center;
+        }
+
+        #hTwo{
+            color: #d01f2a;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #hThree{
+            color: white;
+            font-size: 30px;
+            line-height: 30px;
+            font-family: PingFangSC-Regular, sans-serif;
+            text-align: center;
+        }
+
+        #div1 {
+            color: white;
+            margin: auto;
+        }
+
+        #endTime {
+            color: #2997ff;
+        }
+
+        img {
+            width: 228px;
+            height: 366px;
+            border: 0px;
+        }
+    </style>
+</head>
+<body>
+<br /><br />
+<h1 id="hOne"> WATCH</h1>
+<h2 id="hTwo">S E R I E S  6</h2>
+<h3 id="hThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;健康的未来，现在戴上。</h3>
+<div align="center" id="div1">
+    <img src="watch.jpeg">
+    <p id="time">预售倒计时 <span id="endTime"></span> 秒！</p>
+    <input type="button" id="btn" value="立即购买" disabled="disabled"><br />  
+<!--导入jquery -->
+<script type="text/javascript" src="script/jquery-3.7.1.min.js"></script>  
+<script type="text/javascript">
+        $(function () {
+            var timeElement = $("#endTime")[0]; // 获得倒计时dom对象
+            var  i = 10;
+            function remainTime() {
+                if (i > 0) {
+                    timeElement.innerHTML = i--;
+                    setTimeout(function () {
+                        remainTime();
+                    }, 1000);
+                }
+                if (i == 0) {
+                    $("#time")[0].innerHTML = "在线选购开始";
+                    $("#time").css({color: "#2997ff"});
+                    $("#btn")[0].disabled = false; // 倒计时结束，按钮可以点击
+                }
+            }
+            remainTime();
+
+            $("#btn").click(function () { // 点击事件
+                alert("我们已收到您的付款，正在处理您的订单");
+            });
+        });
+</script>
+</div>
+</body>
+
+</html>
+
+

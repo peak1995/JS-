@@ -1,0 +1,7 @@
+var btnObj = document.getElementById("btn"); // 第二步中可知 id=“btn"
+var timer = setInterval(function () {
+                if (btnObj.disabled == false) { // 当按钮可以点击时
+                    btnObj.click();		//点击
+                    clearInterval(timer); // 选购完成后关闭timer，否则将一直购买，土豪随意
+                }
+            });
